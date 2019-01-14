@@ -1,6 +1,6 @@
 {
-    "title": "サイトを作成しました",
-    "summary": "SpringbootのアプリをGCP上で構築しました",
-    "body": "",
+    "title": "ブログサイト作成しました",
+    "summary": "Springbootでブログデータを出力するアプリを作成してGCPで公開しました。",
+    "published_date": "Jan 14, 2019",
     "author_id": 1
 }
