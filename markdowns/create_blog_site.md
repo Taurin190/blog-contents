@@ -14,9 +14,6 @@ Qiitaやはてブを使わずに一から作成することで、一から作れ
   - bodyのhtmlを取得してブログデータとして追加
 
 ## GCPでのアプリのデプロイ、各種設定
-基本的に、公式のドキュメントにおいて詳細や設定方法が記載されているので、
-そちらを読みながらで問題なく設定を行えました。
-
 行ったことは以下です。
 
 1. DockerイメージをContainer Registryに登録
@@ -32,14 +29,15 @@ DockerイメージをContainer Registryに登録する方法は、
 登録するタグは、このように付ければできます。
 
     docker tag [SOURCE_IMAGE] [HOSTNAME]/[PROJECT-ID]/[IMAGE]
+    docker push [HOSTNAME]/[PROJECT-ID]/[IMAGE]
 
-https://cloud.google.com/container-registry/docs/pushing-and-pulling?hl=ja
+[Docker Registryでのpushとpull](https://cloud.google.com/container-registry/docs/pushing-and-pulling?hl=ja)
 
 
 GCP SQLの登録についてもドキュメントがあり、
 使用したいDatabaseを選択できます。自分はMySQL5.7を選択しました。
 
-https://cloud.google.com/sql/docs/mysql/quickstart?hl=ja
+[Cloud SQLでのインスタンス立ち上げ](https://cloud.google.com/sql/docs/mysql/quickstart?hl=ja)
 
 
 GKEのデプロイも選択していけば、簡単に登録は出来るのですが、
@@ -48,7 +46,7 @@ SQLとの接続で注意する部分がありました。
 - Role設定をしてSQLへの権限を設定する
 - SQLの権限をsecretで登録する
 
-https://cloud.google.com/sql/docs/mysql/connect-kubernetes-engine?hl=ja
+[GKEからCloud SQLへの接続](https://cloud.google.com/sql/docs/mysql/connect-kubernetes-engine?hl=ja)
 
 ## 今後の課題
 今回、簡単にアプリを作ってGCP上にデプロイしてみましたが、
