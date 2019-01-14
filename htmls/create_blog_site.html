@@ -393,8 +393,8 @@ Qiitaやはてブを使わずに一から作成することで、一から作れ
 <ul>
 <li>GKE上にSpringbootのDockerコンテナをデプロイ
 <ul>
-<li>テンプレートを修正してHTML作成</li>
-<li>GCP SQLを使用し、JPAでデータ読み込み</li>
+<li>テンプレートを修正してView作成</li>
+<li>Cloud SQLを使用し、JPAでデータ読み込み</li>
 <li>Springbootでデータを修正してフロントに表示</li>
 </ul>
 </li>
@@ -410,19 +410,19 @@ Qiitaやはてブを使わずに一から作成することで、一から作れ
 <p>行ったことは以下です。</p>
 <ol>
 <li>DockerイメージをContainer Registryに登録</li>
-<li>GCP SQLにデータベース作成</li>
+<li>Cloud SQLにデータベース作成</li>
 <li>GKEで登録したDockerイメージを選択してデプロイ</li>
 </ol>
 <p>DockerイメージをContainer Registryに登録する方法は、
 以下の手順を参考に行えます。</p>
-<p>他のDockerRegistoryに登録する方法と同じかと思います。</p>
+<p>他のDockerのRegistryに登録する方法と同じかと思います。</p>
 <p>リポジトリにログインして、Dockerイメージにタグを付けてpushすれば登録できます。
 登録するタグは、このように付ければできます。</p>
 <pre><code>docker tag [SOURCE_IMAGE] [HOSTNAME]/[PROJECT-ID]/[IMAGE]
 docker push [HOSTNAME]/[PROJECT-ID]/[IMAGE]
 </code></pre>
 <p><a href="https://cloud.google.com/container-registry/docs/pushing-and-pulling?hl=ja">Docker Registryでのpushとpull</a></p>
-<p>GCP SQLの登録についてもドキュメントがあり、
+<p>Cloud SQLの登録についてもドキュメントがあり、
 使用したいDatabaseを選択できます。自分はMySQL5.7を選択しました。</p>
 <p><a href="https://cloud.google.com/sql/docs/mysql/quickstart?hl=ja">Cloud SQLでのインスタンス立ち上げ</a></p>
 <p>GKEのデプロイも選択していけば、簡単に登録は出来るのですが、

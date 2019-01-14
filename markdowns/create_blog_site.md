@@ -5,8 +5,8 @@ Qiitaやはてブを使わずに一から作成することで、一から作れ
 
 ## 何を作ったか？
 - GKE上にSpringbootのDockerコンテナをデプロイ
-  - テンプレートを修正してHTML作成
-  - GCP SQLを使用し、JPAでデータ読み込み
+  - テンプレートを修正してView作成
+  - Cloud SQLを使用し、JPAでデータ読み込み
   - Springbootでデータを修正してフロントに表示
 - GCE上にデータを追加するバッチを作成
   - プロフィールのデータをpropertiesファイルから読み込んで追加
@@ -17,13 +17,13 @@ Qiitaやはてブを使わずに一から作成することで、一から作れ
 行ったことは以下です。
 
 1. DockerイメージをContainer Registryに登録
-1. GCP SQLにデータベース作成
+1. Cloud SQLにデータベース作成
 1. GKEで登録したDockerイメージを選択してデプロイ
 
 DockerイメージをContainer Registryに登録する方法は、
 以下の手順を参考に行えます。
 
-他のDockerRegistoryに登録する方法と同じかと思います。
+他のDockerのRegistryに登録する方法と同じかと思います。
 
 リポジトリにログインして、Dockerイメージにタグを付けてpushすれば登録できます。
 登録するタグは、このように付ければできます。
@@ -34,7 +34,7 @@ DockerイメージをContainer Registryに登録する方法は、
 [Docker Registryでのpushとpull](https://cloud.google.com/container-registry/docs/pushing-and-pulling?hl=ja)
 
 
-GCP SQLの登録についてもドキュメントがあり、
+Cloud SQLの登録についてもドキュメントがあり、
 使用したいDatabaseを選択できます。自分はMySQL5.7を選択しました。
 
 [Cloud SQLでのインスタンス立ち上げ](https://cloud.google.com/sql/docs/mysql/quickstart?hl=ja)
