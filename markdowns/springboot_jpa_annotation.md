@@ -1,6 +1,9 @@
 Springbootにおいて、Spring Data JPAはJPA(Java Persistence API)を
 repositoriesに基づいた実装を容易にしてくれるモジュールです。
 
+[初めてのJPA--シンプルで使いやすい、Java EEのデータ永続化機能の基本を学ぶ](https://builder.japan.zdnet.com/sp_oracle/35067018/)
+
+
 Entityを定義してRepositoryをinterfaceで定義すれば、
 基本的な実装を省略してデータの入出力を行えます。
 
@@ -27,3 +30,13 @@ EAGER（日本語での意味は「熱心な」）はデータベースからエ
 関連するフィールドが多くなったり、依存関係が複雑な場合はLAZYにしておいた方が無駄な呼び出しは済まさずに済む一方で、
 シンプルなデータスキーマを設計している場合はEAGERで先読みしている方が、効率的に読み込むことが出来るかと思います。
 
+
+CascadeTypeの５種類
+ALL, PERSIST, REMOVE, MERGE, REFRESH
+
+
+ManyToManyデータの持ち方について
+https://www.callicoder.com/hibernate-spring-boot-jpa-many-to-many-mapping-example/
+
+Annotationの設定を入れると、データベース
+ListでなくSetにしていないとデータが更新されなかった。
