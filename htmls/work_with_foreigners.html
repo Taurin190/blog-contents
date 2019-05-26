@@ -1,551 +1,534 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>work_with_foreigners.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
-<style>
-/*---------------------------------------------------------------------------------------------
+<head>
+  <title>work_with_foreigners.md</title>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+  <style>
+    /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+    
+    body {
+      font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+      font-size: 14px;
+      padding: 0 12px;
+      line-height: 22px;
+      word-wrap: break-word;
+    }
+    
+    #code-csp-warning {
+      position: fixed;
+      top: 0;
+      right: 0;
+      color: white;
+      margin: 16px;
+      text-align: center;
+      font-size: 12px;
+      font-family: sans-serif;
+      background-color: #444444;
+      cursor: pointer;
+      padding: 6px;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+    }
+    
+    #code-csp-warning:hover {
+      text-decoration: none;
+      background-color: #007acc;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    }
+    
+    body.scrollBeyondLastLine {
+      margin-bottom: calc(100vh - 22px);
+    }
+    
+    body.showEditorSelection .code-line {
+      position: relative;
+    }
+    
+    body.showEditorSelection .code-active-line:before,
+    body.showEditorSelection .code-line:hover:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -12px;
+      height: 100%;
+    }
+    
+    body.showEditorSelection li.code-active-line:before,
+    body.showEditorSelection li.code-line:hover:before {
+      left: -30px;
+    }
+    
+    .vscode-light.showEditorSelection .code-active-line:before {
+      border-left: 3px solid rgba(0, 0, 0, 0.15);
+    }
+    
+    .vscode-light.showEditorSelection .code-line:hover:before {
+      border-left: 3px solid rgba(0, 0, 0, 0.40);
+    }
+    
+    .vscode-dark.showEditorSelection .code-active-line:before {
+      border-left: 3px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    .vscode-dark.showEditorSelection .code-line:hover:before {
+      border-left: 3px solid rgba(255, 255, 255, 0.60);
+    }
+    
+    .vscode-high-contrast.showEditorSelection .code-active-line:before {
+      border-left: 3px solid rgba(255, 160, 0, 0.7);
+    }
+    
+    .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+      border-left: 3px solid rgba(255, 160, 0, 1);
+    }
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    a {
+      color: #4080D0;
+      text-decoration: none;
+    }
+    
+    a:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 1px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
+    }
+    
+    hr {
+      border: 0;
+      height: 2px;
+      border-bottom: 2px solid;
+    }
+    
+    h1 {
+      padding-bottom: 0.3em;
+      line-height: 1.2;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+    
+    h1,
+    h2,
+    h3 {
+      font-weight: normal;
+    }
+    
+    h1 code,
+    h2 code,
+    h3 code,
+    h4 code,
+    h5 code,
+    h6 code {
+      font-size: inherit;
+      line-height: auto;
+    }
+    
+    a:hover {
+      color: #4080D0;
+      text-decoration: underline;
+    }
+    
+    table {
+      border-collapse: collapse;
+    }
+    
+    table>thead>tr>th {
+      text-align: left;
+      border-bottom: 1px solid;
+    }
+    
+    table>thead>tr>th,
+    table>thead>tr>td,
+    table>tbody>tr>th,
+    table>tbody>tr>td {
+      padding: 5px 10px;
+    }
+    
+    table>tbody>tr+tr>td {
+      border-top: 1px solid;
+    }
+    
+    blockquote {
+      margin: 0 7px 0 5px;
+      padding: 0 16px 0 10px;
+      border-left: 5px solid;
+    }
+    
+    code {
+      font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+      font-size: 14px;
+      line-height: 19px;
+    }
+    
+    body.wordWrap pre {
+      white-space: pre-wrap;
+    }
+    
+    .mac code {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    
+    pre:not(.hljs),
+    pre.hljs code>div {
+      padding: 16px;
+      border-radius: 3px;
+      overflow: auto;
+    }
+    /** Theming */
+    
+    .vscode-light,
+    .vscode-light pre code {
+      color: rgb(30, 30, 30);
+    }
+    
+    .vscode-dark,
+    .vscode-dark pre code {
+      color: #DDD;
+    }
+    
+    .vscode-high-contrast,
+    .vscode-high-contrast pre code {
+      color: white;
+    }
+    
+    .vscode-light code {
+      color: #A31515;
+    }
+    
+    .vscode-dark code {
+      color: #D7BA7D;
+    }
+    
+    .vscode-light pre:not(.hljs),
+    .vscode-light code>div {
+      background-color: rgba(220, 220, 220, 0.4);
+    }
+    
+    .vscode-dark pre:not(.hljs),
+    .vscode-dark code>div {
+      background-color: rgba(10, 10, 10, 0.4);
+    }
+    
+    .vscode-high-contrast pre:not(.hljs),
+    .vscode-high-contrast code>div {
+      background-color: rgb(0, 0, 0);
+    }
+    
+    .vscode-high-contrast h1 {
+      border-color: rgb(0, 0, 0);
+    }
+    
+    .vscode-light table>thead>tr>th {
+      border-color: rgba(0, 0, 0, 0.69);
+    }
+    
+    .vscode-dark table>thead>tr>th {
+      border-color: rgba(255, 255, 255, 0.69);
+    }
+    
+    .vscode-light h1,
+    .vscode-light hr,
+    .vscode-light table>tbody>tr+tr>td {
+      border-color: rgba(0, 0, 0, 0.18);
+    }
+    
+    .vscode-dark h1,
+    .vscode-dark hr,
+    .vscode-dark table>tbody>tr+tr>td {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    
+    .vscode-light blockquote,
+    .vscode-dark blockquote {
+      background: rgba(127, 127, 127, 0.1);
+      border-color: rgba(0, 122, 204, 0.5);
+    }
+    
+    .vscode-high-contrast blockquote {
+      background: transparent;
+      border-color: #fff;
+    }
+  </style>
 
-body {
-	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
-	font-size: 14px;
-	padding: 0 12px;
-	line-height: 22px;
-	word-wrap: break-word;
-}
+  <style>
+    /* Tomorrow Theme */
+    /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+    /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+    /* Tomorrow Comment */
+    
+    .hljs-comment,
+    .hljs-quote {
+      color: #8e908c;
+    }
+    /* Tomorrow Red */
+    
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class,
+    .hljs-regexp,
+    .hljs-deletion {
+      color: #c82829;
+    }
+    /* Tomorrow Orange */
+    
+    .hljs-number,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params,
+    .hljs-meta,
+    .hljs-link {
+      color: #f5871f;
+    }
+    /* Tomorrow Yellow */
+    
+    .hljs-attribute {
+      color: #eab700;
+    }
+    /* Tomorrow Green */
+    
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet,
+    .hljs-addition {
+      color: #718c00;
+    }
+    /* Tomorrow Blue */
+    
+    .hljs-title,
+    .hljs-section {
+      color: #4271ae;
+    }
+    /* Tomorrow Purple */
+    
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #8959a8;
+    }
+    
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      color: #4d4d4c;
+      padding: 0.5em;
+    }
+    
+    .hljs-emphasis {
+      font-style: italic;
+    }
+    
+    .hljs-strong {
+      font-weight: bold;
+    }
+  </style>
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	color: #4080D0;
-	text-decoration: none;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-h1 code,
-h2 code,
-h3 code,
-h4 code,
-h5 code,
-h6 code {
-	font-size: inherit;
-	line-height: auto;
-}
-
-a:hover {
-	color: #4080D0;
-	text-decoration: underline;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left: 5px solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 14px;
-	line-height: 19px;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-.mac code {
-	font-size: 12px;
-	line-height: 18px;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-/** Theming */
-
-.vscode-light,
-.vscode-light pre code {
-	color: rgb(30, 30, 30);
-}
-
-.vscode-dark,
-.vscode-dark pre code {
-	color: #DDD;
-}
-
-.vscode-high-contrast,
-.vscode-high-contrast pre code {
-	color: white;
-}
-
-.vscode-light code {
-	color: #A31515;
-}
-
-.vscode-dark code {
-	color: #D7BA7D;
-}
-
-.vscode-light pre:not(.hljs),
-.vscode-light code > div {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre:not(.hljs),
-.vscode-dark code > div {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre:not(.hljs),
-.vscode-high-contrast code > div {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-.vscode-light blockquote,
-.vscode-dark blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.vscode-high-contrast blockquote {
-	background: transparent;
-	border-color: #fff;
-}
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
+  <style>
+    /*
  * Markdown PDF CSS
  */
-
- body {
-	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
+    
+    body {
+      font-family: "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+    }
+    
+    pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+    }
+    
+    pre:not(.hljs) {
+      padding: 23px;
+      line-height: 19px;
+    }
+    
+    blockquote {
+      background: rgba(127, 127, 127, 0.1);
+      border-color: rgba(0, 122, 204, 0.5);
+    }
+    
+    .emoji {
+      height: 1.4em;
+    }
+    /* for inline code */
+    
+    :not(pre):not(.hljs)>code {
+      color: #C9AE75;
+      /* Change the old color so it seems less like an error */
+      font-size: inherit;
+    }
+    /* Page Break : use <div class="page"/> to insert page break
 -------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
+    
+    .page {
+      page-break-after: always;
+    }
+  </style>
 
 </head>
+
 <body>
-<h2 id="overview">Overview</h2>
-<ul>
-<li>この記事で伝えたい事
-<ul>
-<li>本の概要
-<ul>
-<li>異文化理解の大問題はこれで</li>
-<li>分解した問題はこれである</li>
-</ul>
-</li>
-<li>本の感想と意見
-<ul>
-<li>面白かったところ・共感したところ
-<ul>
-<li>非常に良く起きている事だと思う</li>
-<li>相手に責任を押し付けるコミュニケーション</li>
-</ul>
-</li>
-<li>外国人材だけでないく日本人にも言えるところ
-<ul>
-<li>日本人も多様化している
-<ul>
-<li>世代の違う新卒・転職者、働き手も流動化する</li>
-</ul>
-</li>
-<li>日本人は我慢している場合もあるが、流動化で日本人の外国人化が起こりうる</li>
-<li>外国人だからでなく、人と人の関係では相手を思いやるコミュニケーションは必要である</li>
-</ul>
-</li>
-<li>これからどうするのが良いか？
-<ul>
-<li>ルールや運用を見直すいい機会である
-<ul>
-<li>現状維持バイアスを脱する
-<ul>
-<li>手段の目的化に気づく</li>
-</ul>
-</li>
-<li>異なる視点で新しい考えを取り入れる</li>
-<li>目的に立ち返る</li>
-<li>ルールを見直して合意を取る</li>
-<li>ちゃんと守って運用する事</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="%E3%80%8C%E7%95%B0%E6%96%87%E5%8C%96%E7%90%86%E8%A7%A3%E3%81%AE%E5%95%8F%E9%A1%8C%E5%9C%B0%E5%9B%B3%E3%80%8D%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0%E6%84%9F%E6%83%B3">「異文化理解の問題地図」を読んだ感想</h1>
-<p><a href="https://gihyo.jp/book/2019/978-4-297-10415-3">異文化理解の問題地図 ～「で，どこから変える？」グローバル化できない職場のマネジメント</a></p>
-<p>最近、外国籍の同僚や海外の支社の方と関わる機会があり、
-その中でコミュニケーションにも問題を感じる事があったので、早速購入し読んだ。</p>
-<p><a href="http://gihyo.jp/book/series?s=%E5%95%8F%E9%A1%8C%E5%9C%B0%E5%9B%B3">他の問題地図シリーズ</a>と同様に、
-一つの大きな問題を提示して、その問題をいくつかの問題に分解し、それぞれの分解した問題を掘り下げて対応策を示している。</p>
-<p>異文化理解の問題地図で提示されている問題は「外国人材に振り回される職場・外国人材を戦力にできない職場」で、
-それに対して以下の問題に分解されている。</p>
-<ul>
-<li>指示が正しく伝わらない</li>
-<li>主張だらけ</li>
-<li>チームワーク不全</li>
-<li>空気を読めない</li>
-<li>自信過剰</li>
-<li>すぐに辞める</li>
-</ul>
-<p>これらの問題に対しての詳細と対応策については書籍にイラストと共に分かりやすく
-記載されている。
-異なる文化の同僚と接する機会がある人、今後接する人にはお勧めの本です。</p>
-<h2 id="%E8%81%9E%E3%81%8D%E6%89%8B%E3%81%AB%E8%B2%AC%E4%BB%BB%E3%82%92%E6%8A%BC%E3%81%97%E4%BB%98%E3%81%91%E3%82%8B%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">聞き手に責任を押し付けるコミュニケーション</h2>
-<p>異文化交流の中で良く起こっている問題の一つとして、
-「指示が正しく伝わらない」があり、
-その根本原因は「聴き手に責任を押しつけられるコミュニケーションスタイル」にあると言及されていた。</p>
-<p>この本ではマネージャーや上司の立場で、海外から来た部下に対して接するときの事を想定して書いていた。
-日本の古い体質会社では、指示に対して部下が責任を負う場合もあると思う。
-すなわち、指示された業務に対して部下が必要な情報を主体的に集め、適切な情報量の報告で分かりやすい説明する事が求められていると思う。</p>
-<p>発信される情報が不十分になりコミュニケーションが上手くいかないのは問題があると思いますが、
-情報を発信する主体が上司か部下で、問題とされる側が変わっていたという事だと思う。
-なので、今までの日本人部下にしていたのと同じように、部下に合わせさせるやり方が通用しなくなり、
-上司の側も部下の側もコミュニケーションの問題に一緒に取り組む必要が出て来たのだと思う。</p>
-<h2 id="%E8%81%9E%E3%81%8D%E6%89%8B%E3%81%AB%E8%B2%AC%E4%BB%BB%E3%82%92%E6%8A%BC%E3%81%97%E4%BB%98%E3%81%91%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%81%A9%E3%81%86%E3%81%99%E3%82%8B%E3%81%8B%EF%BC%9F">聞き手に責任を押し付けないためにどうするか？</h2>
-<p>この本では、外国の方とのコミュニケーションにおいて、以下のポイントが挙げられていた。</p>
-<ul>
-<li>目的と理由をはっきりさせる</li>
-<li>笑顔で話す</li>
-<li>３回繰り返す</li>
-<li>Yes/Noの態度を明確にする</li>
-<li>イメージしやすいイラストや図などを使う</li>
-</ul>
-<p>非常に大事で抑えないといけないポイントだと感じた。
-特に、目的と理由をはっきりさせるのは大事だと思った。</p>
-<p>その理由は、海外の方と仕事をする時には、よく目的と理由を聞かれるように感じるためだ。
-また、聞かれなかったとしても目的を明確にしていないと成果物の粒度やかけて欲しい時間など認識が合わず進んでしまう場合も生じるからだ。</p>
-<p>実際に、本当は１日や週間程度で簡単に作って欲しいものに、長い時間をかけてしまったり、
-品質に問題なくとも他の優先して進めてほしい作業の調整が必要になるという事も経験したことがあり、
-自分も伝える側の立場に立った時に気をつけないといけないと思う。</p>
-<h3 id="%E4%BB%96%E3%81%AB%E8%80%83%E3%81%88%E3%82%89%E3%82%8C%E3%82%8B%E6%96%B9%E6%B3%95">他に考えられる方法</h3>
-<p>聞き手に責任を押し付けないために、
-実績のある具体的な解決策は見出せていないものの、
-いくつかの方策で対応出来ないかと考えている。</p>
-<ul>
-<li>ペアワーク、モブワーク</li>
-<li>作業内容は自分の言葉で反芻する</li>
-</ul>
-<h4 id="%E3%83%9A%E3%82%A2%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%81%E3%83%A2%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF">ペアワーク、モブワーク</h4>
-<p>ペアプログラミング、モブプログラミングとして、
-アジャイルのエクストリームプログラミング（XP: eXtreme Programming）で用いられる方法です。
-複数人で一つのPCやモニターに向かい手を動かすドライバーを交代しながら、作業を進めていく手法です。</p>
-<p>複数人で作業するので作業効率が落ちるように思っている人もいると思うが、
-認識の違いを埋めて早いうちに軌道修正をしたり、
-複数人が知っていないといけない共通部分の実装の実装と共有同時にできる手法です。</p>
-<p>なぜ、ペアプログラミング、モブプログラミングのやり方が有効だと思うかというと、
-異文化の人材の受け入れにおいて一番困るのは、「何が分からないか分からない」という事があるからだと思うからだ。</p>
-<p>異文化の方は大学などの教育において専門性を身につけて良く知っている部分もあれば、
-日本特有、会社特有のやり方であれば知らなくて当然となる。</p>
-<p>もちろん、そのような固有の情報はドキュメント化して読めばいい状態にしておく手もあるが、
-そこにいる人は当たり前になり、何を残して何を残さないかが判断が付きずらい部分もあると思う。</p>
-<p>このような状況は、日本人の新人受け入れより複雑な状況であると思うので、
-一緒に作業する時間を取る事で、
-当たり前じゃない当たり前を洗い出し、高い専門知識を共有してもらい、得意分野を学ぶ良い機会にできるのではないかと思う。</p>
-<h4 id="%E4%BD%9C%E6%A5%AD%E5%86%85%E5%AE%B9%E3%81%AF%E8%87%AA%E5%88%86%E3%81%AE%E8%A8%80%E8%91%89%E3%81%A7%E5%8F%8D%E8%8A%BB%E3%81%99%E3%82%8B">作業内容は自分の言葉で反芻する</h4>
-<p>作業内容を自分の言葉で反芻して確認する方法は良く行われていると思う。
-しかし、この方法が有効であると思うのは、聞いているだけでは理解できていない場合が起こりうるし、
-その場で分かったと思ったが実際に作業に取り組んだ時に分からなくなるという事があるためだ。</p>
-<p>また、自分の言葉で説明している時に、伝え漏れや抜けている項目を確認する事ができるからだ。
-この方法は、ペアワーク、モブワークなどで慣れてきた時に有効かと思うし、
-元々習慣として行っている方も多いかもしれない。</p>
-<h2 id="%E3%81%9A%E3%81%A3%E3%81%A8%E7%B4%B0%E3%81%8B%E3%81%84%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%8B%EF%BC%9F">ずっと細かいコミュニケーションが必要か？</h2>
-<p>この本での想定は、新しく入ってきた異文化人材に対して指示を出す場合にどうするかという部分だと思う。
-しかし、事細かに指示を行い、３回のリマインドを行っていては管理できる人数も少なくなり、
-「こんな事なら異文化人材を採用しなければ良かった」となるかもしれない。</p>
-<p>そこで、異文化人材がチームに加わり時間が経った時に。どのようなコミュニケーションについて考える。</p>
-<p>自分の考えは、徐々に細かいコミュニケーションをする必要はなくなると思う。
-なぜなら、最初の認識は異なるものの徐々に認識の違いは埋まり、
-お互いの思考の傾向も把握し、
-曖昧だった暗黙の了解も徐々にルール化されると考えられるからだ。</p>
-<p>一方で、目的や期待されるアウトプットのについては丁寧に説明する必要があると思う。
-そもそも目的や期待されるアウトプットの説明は省略すべきでない部分であり、考えた上での指示をすべきなのだと思う。</p>
-<p>ただ、それ以外の細い方法の部分に関しては徐々に任せることができるようになり、
-細かいタスクの依頼から、目的や大まかな要件でお願いできるようになると思う。</p>
-<p>多様性豊かなチームの方が、パフォーマンスが高いという結果はいくつか行われている。<a href="https://www.amazon.co.jp/Lean%E3%81%A8DevOps%E3%81%AE%E7%A7%91%E5%AD%A6-Accelerate-%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC%E3%81%AE%E6%88%A6%E7%95%A5%E7%9A%84%E6%B4%BB%E7%94%A8%E3%81%8C%E7%B5%84%E7%B9%94%E5%A4%89%E9%9D%A9%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%99%E3%82%8B-impress-gear/dp/4295004901">LeanとDevOpsの科学</a>、</p>
-<p>もちろん大変な事も多いかもしれないが、
-乗り越えた時に伝える側のスキルもチームが得られる考え方が増えるため、
-チームとして成長するのかもしれない。</p>
-<h2 id="%E7%95%B0%E6%96%87%E5%8C%96%E3%81%AF%E6%97%A5%E6%9C%AC%E4%BA%BA%E3%81%AB%E3%82%82%E8%A8%80%E3%81%88%E3%82%8B">異文化は日本人にも言える</h2>
-<p>この本を読みながら思ったのは、
-異文化で育った外国の方と一緒に働く事で起こっている問題は、
-今まで日本人同士でも生じていた問題が健在化した部分はあるのでないかと思った。</p>
-<p>この本での学びは外国人とのコミュニケーションに問題を感じている人だけでなく、
-日本人の例えば新卒の若い世代や別の部署から来た文化の異なる人、別の業界から転職されて来た方とのコミュニケーションにおいても気をつけるべき事があるかと思った。</p>
-<h2 id="%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%81%9F%E3%81%84%E4%BA%8B">これから気をつけたい事</h2>
-<p>大事なのは、今までやってきたコミュニケーションと仕事のやり方を見直す事だと思う。
-伝わらないと思ったら、何か伝えられていないものはないか？
-前提として考えていた暗黙知があるのではないか？
-そもそも必要な仕事であるのか？を考える必要があると思う。</p>
-<p>伝えられているか分からない、やり方が分からないとなると不安になり、
-外国人材とどう対峙するかと考えがちになるが、
-同僚であり味方なので、この本の内容も活かしながら共に改善できると良いかと思う。</p>
-<p>多様性を受け入れチームとして上手く回れば、
-自分一人では思いつかないようなアイデアが生まれ協力し合える本当のチームになれるのではないかと思う。</p>
+  <h2 id="overview">Overview</h2>
+  <ul>
+    <li>この記事で伝えたい事
+      <ul>
+        <li>本の概要
+          <ul>
+            <li>異文化理解の大問題はこれで</li>
+            <li>分解した問題はこれである</li>
+          </ul>
+        </li>
+        <li>本の感想と意見
+          <ul>
+            <li>面白かったところ・共感したところ
+              <ul>
+                <li>非常に良く起きている事だと思う</li>
+                <li>相手に責任を押し付けるコミュニケーション</li>
+              </ul>
+            </li>
+            <li>外国人材だけでないく日本人にも言えるところ
+              <ul>
+                <li>日本人も多様化している
+                  <ul>
+                    <li>世代の違う新卒・転職者、働き手も流動化する</li>
+                  </ul>
+                </li>
+                <li>日本人は我慢している場合もあるが、流動化で日本人の外国人化が起こりうる</li>
+                <li>外国人だからでなく、人と人の関係では相手を思いやるコミュニケーションは必要である</li>
+              </ul>
+            </li>
+            <li>これからどうするのが良いか？
+              <ul>
+                <li>ルールや運用を見直すいい機会である
+                  <ul>
+                    <li>現状維持バイアスを脱する
+                      <ul>
+                        <li>手段の目的化に気づく</li>
+                      </ul>
+                    </li>
+                    <li>異なる視点で新しい考えを取り入れる</li>
+                    <li>目的に立ち返る</li>
+                    <li>ルールを見直して合意を取る</li>
+                    <li>ちゃんと守って運用する事</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h1 id="%E3%80%8C%E7%95%B0%E6%96%87%E5%8C%96%E7%90%86%E8%A7%A3%E3%81%AE%E5%95%8F%E9%A1%8C%E5%9C%B0%E5%9B%B3%E3%80%8D%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0%E6%84%9F%E6%83%B3">「異文化理解の問題地図」を読んだ感想</h1>
+  <p><a href="https://gihyo.jp/book/2019/978-4-297-10415-3">異文化理解の問題地図 ～「で，どこから変える？」グローバル化できない職場のマネジメント</a></p>
+  <p>最近、外国籍の同僚や海外の支社の方と関わる機会があり、 その中でコミュニケーションにも問題を感じる事があったので、早速購入し読んだ。
+  </p>
+  <p><a href="http://gihyo.jp/book/series?s=%E5%95%8F%E9%A1%8C%E5%9C%B0%E5%9B%B3">他の問題地図シリーズ</a>と同様に、 一つの大きな問題を提示して、その問題をいくつかの問題に分解し、それぞれの分解した問題を掘り下げて対応策を示している。
+  </p>
+  <p>異文化理解の問題地図で提示されている問題は「外国人材に振り回される職場・外国人材を戦力にできない職場」で、 それに対して以下の問題に分解されている。
+  </p>
+  <ul>
+    <li>指示が正しく伝わらない</li>
+    <li>主張だらけ</li>
+    <li>チームワーク不全</li>
+    <li>空気を読めない</li>
+    <li>自信過剰</li>
+    <li>すぐに辞める</li>
+  </ul>
+  <p>これらの問題に対しての詳細と対応策については書籍にイラストと共に分かりやすく 記載されている。 異なる文化の同僚と接する機会がある人、今後接する人にはお勧めの本です。
+  </p>
+  <h2 id="%E8%81%9E%E3%81%8D%E6%89%8B%E3%81%AB%E8%B2%AC%E4%BB%BB%E3%82%92%E6%8A%BC%E3%81%97%E4%BB%98%E3%81%91%E3%82%8B%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3">聞き手に責任を押し付けるコミュニケーション</h2>
+  <p>異文化交流の中で良く起こっている問題の一つとして、 「指示が正しく伝わらない」があり、 その根本原因は「聴き手に責任を押しつけられるコミュニケーションスタイル」にあると言及されていた。
+  </p>
+  <p>この本ではマネージャーや上司の立場で、海外から来た部下に対して接するときの事を想定して書いていた。 日本の古い体質会社では、指示に対して部下が責任を負う場合もあると思う。 すなわち、指示された業務に対して部下が必要な情報を主体的に集め、適切な情報量の報告で分かりやすい説明する事が求められていると思う。
+  </p>
+  <p>発信される情報が不十分になりコミュニケーションが上手くいかないのは問題があると思いますが、 情報を発信する主体が上司か部下で、問題とされる側が変わっていたという事だと思う。 なので、今までの日本人部下にしていたのと同じように、部下に合わせさせるやり方が通用しなくなり、 上司の側も部下の側もコミュニケーションの問題に一緒に取り組む必要が出て来たのだと思う。
+  </p>
+  <h2 id="%E8%81%9E%E3%81%8D%E6%89%8B%E3%81%AB%E8%B2%AC%E4%BB%BB%E3%82%92%E6%8A%BC%E3%81%97%E4%BB%98%E3%81%91%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%AB%E3%81%A9%E3%81%86%E3%81%99%E3%82%8B%E3%81%8B%EF%BC%9F">聞き手に責任を押し付けないためにどうするか？</h2>
+  <p>この本では、外国の方とのコミュニケーションにおいて、以下のポイントが挙げられていた。</p>
+  <ul>
+    <li>目的と理由をはっきりさせる</li>
+    <li>笑顔で話す</li>
+    <li>３回繰り返す</li>
+    <li>Yes/Noの態度を明確にする</li>
+    <li>イメージしやすいイラストや図などを使う</li>
+  </ul>
+  <p>非常に大事で抑えないといけないポイントだと感じた。 特に、目的と理由をはっきりさせるのは大事だと思った。
+  </p>
+  <p>その理由は、海外の方と仕事をする時には、よく目的と理由を聞かれるように感じるためだ。 また、聞かれなかったとしても目的を明確にしていないと成果物の粒度やかけて欲しい時間など認識が合わず進んでしまう場合も生じるからだ。
+  </p>
+  <p>実際に、本当は１日や週間程度で簡単に作って欲しいものに、長い時間をかけてしまったり、 品質に問題なくとも他の優先して進めてほしい作業の調整が必要になるという事も経験したことがあり、 自分も伝える側の立場に立った時に気をつけないといけないと思う。
+  </p>
+  <h3 id="%E4%BB%96%E3%81%AB%E8%80%83%E3%81%88%E3%82%89%E3%82%8C%E3%82%8B%E6%96%B9%E6%B3%95">他に考えられる方法</h3>
+  <p>聞き手に責任を押し付けないために、 実績のある具体的な解決策は見出せていないものの、 いくつかの方策で対応出来ないかと考えている。
+  </p>
+  <ul>
+    <li>ペアワーク、モブワーク</li>
+    <li>作業内容は自分の言葉で反芻する</li>
+  </ul>
+  <h4 id="%E3%83%9A%E3%82%A2%E3%83%AF%E3%83%BC%E3%82%AF%E3%80%81%E3%83%A2%E3%83%96%E3%83%AF%E3%83%BC%E3%82%AF">ペアワーク、モブワーク</h4>
+  <p>ペアプログラミング、モブプログラミングとして、 アジャイルのエクストリームプログラミング（XP: eXtreme Programming）で用いられる方法です。 複数人で一つのPCやモニターに向かい手を動かすドライバーを交代しながら、作業を進めていく手法です。
+  </p>
+  <p>複数人で作業するので作業効率が落ちるように思っている人もいると思うが、 認識の違いを埋めて早いうちに軌道修正をしたり、 複数人が知っていないといけない共通部分の実装の実装と共有同時にできる手法です。
+  </p>
+  <p>なぜ、ペアプログラミング、モブプログラミングのやり方が有効だと思うかというと、 異文化の人材の受け入れにおいて一番困るのは、「何が分からないか分からない」という事があるからだと思うからだ。
+  </p>
+  <p>異文化の方は大学などの教育において専門性を身につけて良く知っている部分もあれば、 日本特有、会社特有のやり方であれば知らなくて当然となる。
+  </p>
+  <p>もちろん、そのような固有の情報はドキュメント化して読めばいい状態にしておく手もあるが、 そこにいる人は当たり前になり、何を残して何を残さないかが判断が付きずらい部分もあると思う。
+  </p>
+  <p>このような状況は、日本人の新人受け入れより複雑な状況であると思うので、 一緒に作業する時間を取る事で、 当たり前じゃない当たり前を洗い出し、高い専門知識を共有してもらい、得意分野を学ぶ良い機会にできるのではないかと思う。
+  </p>
+  <h4 id="%E4%BD%9C%E6%A5%AD%E5%86%85%E5%AE%B9%E3%81%AF%E8%87%AA%E5%88%86%E3%81%AE%E8%A8%80%E8%91%89%E3%81%A7%E5%8F%8D%E8%8A%BB%E3%81%99%E3%82%8B">作業内容は自分の言葉で反芻する</h4>
+  <p>作業内容を自分の言葉で反芻して確認する方法は良く行われていると思う。 しかし、この方法が有効であると思うのは、聞いているだけでは理解できていない場合が起こりうるし、 その場で分かったと思ったが実際に作業に取り組んだ時に分からなくなるという事があるためだ。
+  </p>
+  <p>また、自分の言葉で説明している時に、伝え漏れや抜けている項目を確認する事ができるからだ。 この方法は、ペアワーク、モブワークなどで慣れてきた時に有効かと思うし、 元々習慣として行っている方も多いかもしれない。
+  </p>
+  <h2 id="%E3%81%9A%E3%81%A3%E3%81%A8%E7%B4%B0%E3%81%8B%E3%81%84%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%8B%EF%BC%9F">ずっと細かいコミュニケーションが必要か？</h2>
+  <p>この本での想定は、新しく入ってきた異文化人材に対して指示を出す場合にどうするかという部分だと思う。 しかし、事細かに指示を行い、３回のリマインドを行っていては管理できる人数も少なくなり、 「こんな事なら異文化人材を採用しなければ良かった」となるかもしれない。
+  </p>
+  <p>そこで、異文化人材がチームに加わり時間が経った時に。どのようなコミュニケーションについて考える。</p>
+  <p>自分の考えは、徐々に細かいコミュニケーションをする必要はなくなると思う。 なぜなら、最初の認識は異なるものの徐々に認識の違いは埋まり、 お互いの思考の傾向も把握し、 曖昧だった暗黙の了解も徐々にルール化されると考えられるからだ。
+  </p>
+  <p>一方で、目的や期待されるアウトプットのについては丁寧に説明する必要があると思う。 そもそも目的や期待されるアウトプットの説明は省略すべきでない部分であり、考えた上での指示をすべきなのだと思う。
+  </p>
+  <p>ただ、それ以外の細い方法の部分に関しては徐々に任せることができるようになり、 細かいタスクの依頼から、目的や大まかな要件でお願いできるようになると思う。
+  </p>
+  <p>多様性豊かなチームの方が、パフォーマンスが高いという結果はいくつか行われている。[<a href="https://www.amazon.co.jp/Lean%E3%81%A8DevOps%E3%81%AE%E7%A7%91%E5%AD%A6-Accelerate-%E3%83%86%E3%82%AF%E3%83%8E%E3%83%AD%E3%82%B8%E3%83%BC%E3%81%AE%E6%88%A6%E7%95%A5%E7%9A%84%E6%B4%BB%E7%94%A8%E3%81%8C%E7%B5%84%E7%B9%94%E5%A4%89%E9%9D%A9%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%99%E3%82%8B-impress-gear/dp/4295004901">LeanとDevOpsの科学</a>]</p>
+  <p>もちろん大変な事も多いかもしれないが、 乗り越えた時に伝える側のスキルもチームが得られる考え方が増えるため、 チームとして成長するのかもしれない。
+  </p>
+  <h2 id="%E7%95%B0%E6%96%87%E5%8C%96%E3%81%AF%E6%97%A5%E6%9C%AC%E4%BA%BA%E3%81%AB%E3%82%82%E8%A8%80%E3%81%88%E3%82%8B">異文化は日本人にも言える</h2>
+  <p>この本を読みながら思ったのは、 異文化で育った外国の方と一緒に働く事で起こっている問題は、 今まで日本人同士でも生じていた問題が健在化した部分はあるのでないかと思った。
+  </p>
+  <p>この本での学びは外国人とのコミュニケーションに問題を感じている人だけでなく、 日本人の例えば新卒の若い世代や別の部署から来た文化の異なる人、別の業界から転職されて来た方とのコミュニケーションにおいても気をつけるべき事があるかと思った。
+  </p>
+  <h2 id="%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%81%9F%E3%81%84%E4%BA%8B">これから気をつけたい事</h2>
+  <p>大事なのは、今までやってきたコミュニケーションと仕事のやり方を見直す事だと思う。 伝わらないと思ったら、何か伝えられていないものはないか？ 前提として考えていた暗黙知があるのではないか？ そもそも必要な仕事であるのか？を考える必要があると思う。
+  </p>
+  <p>伝えられているか分からない、やり方が分からないとなると不安になり、 外国人材とどう対峙するかと考えがちになるが、 同僚であり味方なので、この本の内容も活かしながら共に改善できると良いかと思う。
+  </p>
+  <p>多様性を受け入れチームとして上手く回れば、 自分一人では思いつかないようなアイデアが生まれ協力し合える本当のチームになれるのではないかと思う。
+  </p>
 
 </body>
+
 </html>
