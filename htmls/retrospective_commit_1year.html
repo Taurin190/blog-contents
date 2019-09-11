@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>retrospective_commit_1year.md</title>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+  <style>
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+    
+    body {
+      font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+      font-size: 14px;
+      padding: 0 12px;
+      line-height: 22px;
+      word-wrap: break-word;
+    }
+    
+    #code-csp-warning {
+      position: fixed;
+      top: 0;
+      right: 0;
+      color: white;
+      margin: 16px;
+      text-align: center;
+      font-size: 12px;
+      font-family: sans-serif;
+      background-color: #444444;
+      cursor: pointer;
+      padding: 6px;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+    }
+    
+    #code-csp-warning:hover {
+      text-decoration: none;
+      background-color: #007acc;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    }
+    
+    body.scrollBeyondLastLine {
+      margin-bottom: calc(100vh - 22px);
+    }
+    
+    body.showEditorSelection .code-line {
+      position: relative;
+    }
+    
+    body.showEditorSelection .code-active-line:before,
+    body.showEditorSelection .code-line:hover:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -12px;
+      height: 100%;
+    }
+    
+    body.showEditorSelection li.code-active-line:before,
+    body.showEditorSelection li.code-line:hover:before {
+      left: -30px;
+    }
+    
+    .vscode-light.showEditorSelection .code-active-line:before {
+      border-left: 3px solid rgba(0, 0, 0, 0.15);
+    }
+    
+    .vscode-light.showEditorSelection .code-line:hover:before {
+      border-left: 3px solid rgba(0, 0, 0, 0.40);
+    }
+    
+    .vscode-dark.showEditorSelection .code-active-line:before {
+      border-left: 3px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    .vscode-dark.showEditorSelection .code-line:hover:before {
+      border-left: 3px solid rgba(255, 255, 255, 0.60);
+    }
+    
+    .vscode-high-contrast.showEditorSelection .code-active-line:before {
+      border-left: 3px solid rgba(255, 160, 0, 0.7);
+    }
+    
+    .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+      border-left: 3px solid rgba(255, 160, 0, 1);
+    }
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    a {
+      color: #4080D0;
+      text-decoration: none;
+    }
+    
+    a:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 1px solid -webkit-focus-ring-color;
+      outline-offset: -1px;
+    }
+    
+    hr {
+      border: 0;
+      height: 2px;
+      border-bottom: 2px solid;
+    }
+    
+    h1 {
+      padding-bottom: 0.3em;
+      line-height: 1.2;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+    
+    h1,
+    h2,
+    h3 {
+      font-weight: normal;
+    }
+    
+    h1 code,
+    h2 code,
+    h3 code,
+    h4 code,
+    h5 code,
+    h6 code {
+      font-size: inherit;
+      line-height: auto;
+    }
+    
+    a:hover {
+      color: #4080D0;
+      text-decoration: underline;
+    }
+    
+    table {
+      border-collapse: collapse;
+    }
+    
+    table>thead>tr>th {
+      text-align: left;
+      border-bottom: 1px solid;
+    }
+    
+    table>thead>tr>th,
+    table>thead>tr>td,
+    table>tbody>tr>th,
+    table>tbody>tr>td {
+      padding: 5px 10px;
+    }
+    
+    table>tbody>tr+tr>td {
+      border-top: 1px solid;
+    }
+    
+    blockquote {
+      margin: 0 7px 0 5px;
+      padding: 0 16px 0 10px;
+      border-left: 5px solid;
+    }
+    
+    code {
+      font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+      font-size: 14px;
+      line-height: 19px;
+    }
+    
+    body.wordWrap pre {
+      white-space: pre-wrap;
+    }
+    
+    .mac code {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    
+    pre:not(.hljs),
+    pre.hljs code>div {
+      padding: 16px;
+      border-radius: 3px;
+      overflow: auto;
+    }
+    /** Theming */
+    
+    .vscode-light,
+    .vscode-light pre code {
+      color: rgb(30, 30, 30);
+    }
+    
+    .vscode-dark,
+    .vscode-dark pre code {
+      color: #DDD;
+    }
+    
+    .vscode-high-contrast,
+    .vscode-high-contrast pre code {
+      color: white;
+    }
+    
+    .vscode-light code {
+      color: #A31515;
+    }
+    
+    .vscode-dark code {
+      color: #D7BA7D;
+    }
+    
+    .vscode-light pre:not(.hljs),
+    .vscode-light code>div {
+      background-color: rgba(220, 220, 220, 0.4);
+    }
+    
+    .vscode-dark pre:not(.hljs),
+    .vscode-dark code>div {
+      background-color: rgba(10, 10, 10, 0.4);
+    }
+    
+    .vscode-high-contrast pre:not(.hljs),
+    .vscode-high-contrast code>div {
+      background-color: rgb(0, 0, 0);
+    }
+    
+    .vscode-high-contrast h1 {
+      border-color: rgb(0, 0, 0);
+    }
+    
+    .vscode-light table>thead>tr>th {
+      border-color: rgba(0, 0, 0, 0.69);
+    }
+    
+    .vscode-dark table>thead>tr>th {
+      border-color: rgba(255, 255, 255, 0.69);
+    }
+    
+    .vscode-light h1,
+    .vscode-light hr,
+    .vscode-light table>tbody>tr+tr>td {
+      border-color: rgba(0, 0, 0, 0.18);
+    }
+    
+    .vscode-dark h1,
+    .vscode-dark hr,
+    .vscode-dark table>tbody>tr+tr>td {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    
+    .vscode-light blockquote,
+    .vscode-dark blockquote {
+      background: rgba(127, 127, 127, 0.1);
+      border-color: rgba(0, 122, 204, 0.5);
+    }
+    
+    .vscode-high-contrast blockquote {
+      background: transparent;
+      border-color: #fff;
+    }
+  </style>
+
+  <style>
+    /* Tomorrow Theme */
+    /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+    /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+    /* Tomorrow Comment */
+    
+    .hljs-comment,
+    .hljs-quote {
+      color: #8e908c;
+    }
+    /* Tomorrow Red */
+    
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class,
+    .hljs-regexp,
+    .hljs-deletion {
+      color: #c82829;
+    }
+    /* Tomorrow Orange */
+    
+    .hljs-number,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params,
+    .hljs-meta,
+    .hljs-link {
+      color: #f5871f;
+    }
+    /* Tomorrow Yellow */
+    
+    .hljs-attribute {
+      color: #eab700;
+    }
+    /* Tomorrow Green */
+    
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet,
+    .hljs-addition {
+      color: #718c00;
+    }
+    /* Tomorrow Blue */
+    
+    .hljs-title,
+    .hljs-section {
+      color: #4271ae;
+    }
+    /* Tomorrow Purple */
+    
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #8959a8;
+    }
+    
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      color: #4d4d4c;
+      padding: 0.5em;
+    }
+    
+    .hljs-emphasis {
+      font-style: italic;
+    }
+    
+    .hljs-strong {
+      font-weight: bold;
+    }
+  </style>
+
+  <style>
+    /*
+ * Markdown PDF CSS
+ */
+    
+    body {
+      font-family: "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+    }
+    
+    pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+    }
+    
+    pre:not(.hljs) {
+      padding: 23px;
+      line-height: 19px;
+    }
+    
+    blockquote {
+      background: rgba(127, 127, 127, 0.1);
+      border-color: rgba(0, 122, 204, 0.5);
+    }
+    
+    .emoji {
+      height: 1.4em;
+    }
+    /* for inline code */
+    
+    :not(pre):not(.hljs)>code {
+      color: #C9AE75;
+      /* Change the old color so it seems less like an error */
+      font-size: inherit;
+    }
+    /* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+    
+    .page {
+      page-break-after: always;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1 id="%E4%B8%80%E5%B9%B4%E8%8D%89%E3%82%92%E7%94%9F%E3%82%84%E3%81%97%E3%81%9F%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A">一年草を生やした振り返り</h1>
+  <p>いくつか思うところがあり、一年間Githubにコミットして草を生やし続けてみました。 実際にはポロポロ虫喰いもあり完全に一年通した訳では無いものの、 ある程度続けてみて感じたことを振り返ろうと思います。
+  </p>
+  <p><img src="https://firebasestorage.googleapis.com/v0/b/taurin190com-1baea.appspot.com/o/github_screenshot.png?alt=media" alt="コミット履歴" title="コミット履歴" style="width:100%;"></p>
+  <h2 id="%E5%A7%8B%E3%82%81%E3%81%9F%E5%8B%95%E6%A9%9F">始めた動機</h2>
+  <p>たまに記事等でも見るトピックとして、「<a href="https://axia.co.jp/2017-07-18">エンジニアは業務時間外でも勉強するべきなのか</a>」というものがあると思います。 働き方は個々人の自由で、エンジニアはこうすべき等は言いませんが、 私は勉強してスキルアップし、より面白い仕事をしたいので勉強をしていきたいと考えています。
+  </p>
+  <p>自分の勉強したいことと仕事が完全一致している人は羨ましく思いますが、 私の場合は以下のようなことを仕事でやっていたこともあったので、何か始めようとしました。
+  </p>
+  <ul>
+    <li>チーム開発なので自分で実装しない部分がある</li>
+    <li>設計、レビュー、テストのフェーズでコードを書かない期間が結構ある</li>
+    <li>運用が多い、ほぼ開発しないレガシー対応のプロジェクト</li>
+    <li>レビューのみで開発はしない</li>
+  </ul>
+  <p>Githubにコミットの習慣を始めるより前も<a href="https://paiza.jp/challenges/info">paiza</a>のスキルチェックで、 使用したことの無い言語を使って練習してみたりしていました。 これはこれで楽しく勉強にもなったのですが、 実際に業務で活かせるスキルと異なる部分も多いなと思い、 Githubで、より実践的なものを含めてコミットする習慣をスタートしました。
+  </p>
+  <h2 id="%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8">やったこと</h2>
+  <ul>
+    <li>一年コミットの習慣を続けてみた</li>
+    <li>280日/378日で、合計750ぐらいコミットした
+      <ul>
+        <li>70%以上, 土日以外毎日コミットしたぐらい</li>
+      </ul>
+    </li>
+    <li>Java, Python, Vue.js, go, Flutter等試してみたいものを好きに作成した</li>
+    <li>休日や夜帰ってから、たまに始業時間前にコード書いてコミットした</li>
+    <li>最低でもREADMEの修正なども含め、PCに向かい反映し続けることを意識した</li>
+  </ul>
+  <h2 id="%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8">分かったこと</h2>
+  <ul>
+    <li>最初辛い、特に平日帰ってから作業が進まない</li>
+    <li>理想と現実のギャップを感じた
+      <ul>
+        <li>出来ると思ってること意外とできない</li>
+        <li>細かいところを考えてなくて都度止まる</li>
+        <li>経験が少ないところは特に大変
+          <ul>
+            <li>どんなもの作るかが中々決められない</li>
+            <li>デザイン考えるの大変</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>徐々に慣れてくる
+      <ul>
+        <li>コミットに抵抗が無くなってくる
+          <ul>
+            <li>大胆に書ける一方で、自分に甘くなる</li>
+          </ul>
+        </li>
+        <li>その日に合わせたタスク選択出来るようになる
+          <ul>
+            <li>平日はテストの足りないところ詰めたり</li>
+            <li>休日は簡単な設計してTODOに落としてみたい</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>難易度の高いものは続けられなかった
+      <ul>
+        <li>問題集などの後半は完遂できなかった</li>
+        <li>新しいもの盛り込みすぎると全く手がつかなくなった</li>
+      </ul>
+    </li>
+    <li>ユニットテストの大事さを感じた
+      <ul>
+        <li>開発再開時に何が出来ているか分からなくなる問題解消</li>
+        <li>コミットに抵抗無くなった分、テスト無いとデグレで気力が尽きる</li>
+        <li>全部通ると気分が良い、SonarQubeで見たときの達成感</li>
+      </ul>
+    </li>
+    <li>コード書くことの大事さを感じた
+      <ul>
+        <li>書いてないと忘れるし、見積もりの精度も下がる</li>
+        <li>スクリプト書いてデータ分析、運用する選択肢も取りやすくなった</li>
+        <li>自分で全部のコードを書くので理解が深まった</li>
+      </ul>
+    </li>
+    <li>コード書くだけでは分からないこと多い
+      <ul>
+        <li>分からないことを調べる時に記事を参照した時に良くない書き方に気付く</li>
+        <li>原理・原則は本読まないと分からない。記事では体系的には理解できない</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="%E6%AC%A1%E3%82%84%E3%82%8B%E3%81%93%E3%81%A8">次やること</h2>
+  <ul>
+    <li>コミットの習慣を継続</li>
+    <li>もっと作り込んだリポジトリもたまに作成する</li>
+    <li>他の人のリポジトリ読み書き方も勉強する</li>
+    <li>OSSにプルリク送りたい</li>
+  </ul>
+
+</body>
+
+</html>
